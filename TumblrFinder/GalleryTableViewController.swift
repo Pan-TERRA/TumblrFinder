@@ -121,9 +121,14 @@ class GalleryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
+        let post = gallery?.posts[indexPath.item]
+        guard post?.image != nil else {
+            return
+        }
+        
         let storybord = UIStoryboard(name: "Main", bundle: nil)
         let postViewController = storybord.instantiateViewController(withIdentifier: "postViewController") as! PostViewController
-        postViewController.post = gallery?.posts[indexPath.item]
+        postViewController.post = post
         
         self.navigationController?.pushViewController(postViewController, animated: true)
     }
