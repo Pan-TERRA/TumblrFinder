@@ -10,5 +10,15 @@ import UIKit
 
 class PictureTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var pictureView: UIImageView! 
+    @IBOutlet weak var pictureView: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        pictureView.image = nil
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        backgroundColor = UIColor.clear
+    }
 }
