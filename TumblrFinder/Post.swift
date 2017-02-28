@@ -14,17 +14,19 @@ class Post {
     private static let miniatureWidth: CGFloat = 300.0
     
     open let blogName: String
-    open let image: UIImage?
-    open let miniature: UIImage?
+    open let imageSize: CGSize
+    open let imageURL: String
+    open var image: UIImage? {
+        didSet {
+            miniature = image?.imageResizeTo(width: Post.miniatureWidth)
+        }
+    }
+    open var miniature: UIImage?
+    open var imageFetchingInProgress = false
     
-    init(from blogName: String, with image: UIImage?) {
+    init(from blogName: String, withImageSize size: CGSize, imageURL url: String) {
         self.blogName = blogName
-        self.image = image
-        self.miniature = image?.imageResizeTo(width: Post.miniatureWidth)
+        self.imageSize = size;
+        self.imageURL = url;
     }
-    
-    convenience init(from blogName: String) {
-        self.init(from: blogName, with: nil)
-    }
-    
 }

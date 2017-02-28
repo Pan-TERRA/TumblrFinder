@@ -19,11 +19,15 @@ class PictureWorker {
     private let typeKey = "key"
     private let photosKey = "photos"
     private let altSizesKey = "alt_sizes"
+    private let widthKey = "width"
+    private let heightKey = "height"
     private let photoURLKey = "url"
     
     
     open func searchWithTag(_ tag: String, withCompletionHandler handler:@escaping (([Post], NetworkError?) -> Void)) {
-        let url = URL(string: "\(tumblrAPIHost)?tag=\(tag)&api_key=\(APIKey)")!
+        let convertedTag = tag.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let stringURL = "\(tumblrAPIHost)?tag=\(convertedTag!)&api_key=\(APIKey)"
+        let url = URL(string: stringURL)!
         let session = URLSession.shared
         
         var fetchedPosts = [Post]()
@@ -64,9 +68,7 @@ class PictureWorker {
                 handler(fetchedPosts, fetchingError)
                 return
             }
-            
-            let fetchGroup = DispatchGroup()
-            
+          
             for postDictionary in postsArray {
                 
                 guard postDictionary[self.typeKey] as? String != "photo" else {
@@ -87,28 +89,17 @@ class PictureWorker {
                         continue
                     }
                     
-                    guard let photoURL = altSizesArray.first?[self.photoURLKey] as? String else {
-                        continue
+                    guard let photoURL = altSizesArray.first?[self.photoURLKey] as? String,
+                        let photoWidth = altSizesArray.first?[self.widthKey] as? Int,
+                        let photoHeight = altSizesArray.first?[self.heightKey] as? Int else {
+                            continue
                     }
-                    
-                    fetchGroup.enter()
-                    
-                    self.fetchImage(from: photoURL, withCompletionHandler: { image, error in
-                        
-                        guard let image = image else {
-                            print(error!.localizedDescription)
-                            fetchGroup.leave()
-                            return
-                        }  
-                        
-                        fetchedPosts.append(Post(from: blogName, with: image))
-                        fetchGroup.leave()
-                    })
+                    let post = Post(from: blogName, withImageSize: CGSize(width: photoWidth, height: photoHeight), imageURL: photoURL)
+                    fetchedPosts.append(post)
                 }
             }
-            fetchGroup.notify(queue: .main) {
-                handler(fetchedPosts, fetchingError)
-            }
+            
+            handler(fetchedPosts, fetchingError)
         })
         
         task.resume()
