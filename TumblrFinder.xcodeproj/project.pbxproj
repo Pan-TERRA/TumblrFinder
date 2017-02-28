@@ -13,9 +13,7 @@
 		412ED9FF1E64CB6F009E0EE5 /* PictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412ED9FD1E64CB6F009E0EE5 /* PictureTableViewCell.swift */; };
 		412EDA001E64CB6F009E0EE5 /* PictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412ED9FE1E64CB6F009E0EE5 /* PictureTableViewCell.xib */; };
 		412EDA021E64DC06009E0EE5 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412EDA011E64DC06009E0EE5 /* PostViewController.swift */; };
-		412EDA041E64ECF7009E0EE5 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412EDA031E64ECF7009E0EE5 /* WaitingViewController.swift */; };
 		4136E4CE1E643C2500709854 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4136E4CD1E643C2500709854 /* AppDelegate.swift */; };
-		4136E4D01E643C2500709854 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4136E4CF1E643C2500709854 /* SearchViewController.swift */; };
 		4136E4D31E643C2500709854 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4136E4D11E643C2500709854 /* Main.storyboard */; };
 		4136E4D51E643C2500709854 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4136E4D41E643C2500709854 /* Assets.xcassets */; };
 		4136E4D81E643C2500709854 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4136E4D61E643C2500709854 /* LaunchScreen.storyboard */; };
@@ -31,10 +29,8 @@
 		412ED9FD1E64CB6F009E0EE5 /* PictureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureTableViewCell.swift; sourceTree = "<group>"; };
 		412ED9FE1E64CB6F009E0EE5 /* PictureTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureTableViewCell.xib; sourceTree = "<group>"; };
 		412EDA011E64DC06009E0EE5 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		412EDA031E64ECF7009E0EE5 /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		4136E4CA1E643C2500709854 /* TumblrFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumblrFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4136E4CD1E643C2500709854 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4136E4CF1E643C2500709854 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4136E4D21E643C2500709854 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4136E4D41E643C2500709854 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4136E4D71E643C2500709854 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,8 +118,6 @@
 		41C14FA61E64A9DF00C1A7A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4136E4CF1E643C2500709854 /* SearchViewController.swift */,
-				412EDA031E64ECF7009E0EE5 /* WaitingViewController.swift */,
 				412ED9F61E64B058009E0EE5 /* GalleryTableViewController.swift */,
 				412ED9FD1E64CB6F009E0EE5 /* PictureTableViewCell.swift */,
 				412EDA011E64DC06009E0EE5 /* PostViewController.swift */,
@@ -217,8 +211,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				412ED9F71E64B058009E0EE5 /* GalleryTableViewController.swift in Sources */,
-				4136E4D01E643C2500709854 /* SearchViewController.swift in Sources */,
-				412EDA041E64ECF7009E0EE5 /* WaitingViewController.swift in Sources */,
 				412ED9F91E64B2B1009E0EE5 /* Gallery.swift in Sources */,
 				41C14F9F1E64475E00C1A7A7 /* PictureWorker.swift in Sources */,
 				412EDA021E64DC06009E0EE5 /* PostViewController.swift in Sources */,
