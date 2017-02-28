@@ -109,7 +109,8 @@ class GalleryTableViewController: UITableViewController {
     
     // MARK: - Table View Delegate
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {        let fullImageSize = (gallery?.posts[indexPath.item].imageSize)!
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let fullImageSize = (gallery?.posts[indexPath.item].imageSize)!
         
         let aspectRatio = fullImageSize.width / 300.0
         let newHeight = fullImageSize.height / aspectRatio
